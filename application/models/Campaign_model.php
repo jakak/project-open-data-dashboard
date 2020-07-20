@@ -1998,6 +1998,7 @@ class Campaign_model extends CI_Model
     }
 
     public function update_status($update)
+    {
       try {
 
           $existing_status = array();
@@ -2126,6 +2127,7 @@ class Campaign_model extends CI_Model
     } catch (Exception $e) {
       log_message('error', $e->getMessage())
     }
+  }
 
     public function milestones_model()
     {

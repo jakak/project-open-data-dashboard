@@ -1999,8 +1999,7 @@ class Campaign_model extends CI_Model
 
     public function update_status($update)
     {
-      try {
-
+        try {
           $existing_status = array();
           $tracker_update = false;
 
@@ -2123,11 +2122,11 @@ class Campaign_model extends CI_Model
           }
 
           return $status_id;
+        } catch (Exception $e) {
+          log_message('error', 'Error updating status: ' . $e->getMessage());
+        }
 
-    } catch (Exception $e) {
-      log_message('error', $e->getMessage())
     }
-  }
 
     public function milestones_model()
     {

@@ -701,8 +701,7 @@ class Campaign extends CI_Controller
         */
 
         if ($component == 'full-scan' || $component == 'all' || $component == 'datapage') {
-
-
+          try {
             // Get status of html /data page
             $page_status_url = $url . '/data';
 
@@ -722,8 +721,11 @@ class Campaign extends CI_Controller
             }
 
             $update->status_id = $this->campaign->update_status($update);
-
+          } catch (Exception $e) {
+            log_message('error', 'Error updating datapage: ' . $e . PHP_EOL);
+          }
         }
+
 
 
         /*

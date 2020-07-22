@@ -2000,6 +2000,7 @@ class Campaign_model extends CI_Model
     public function update_status($update)
     {
         try {
+          log_message('debug', 'Updating with: ' . $update . PHP_EOL);
           $existing_status = array();
           $tracker_update = false;
 
